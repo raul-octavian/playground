@@ -31,7 +31,7 @@ section {
   min-height: 100vh;
 }
 
-#canvas {
+#moodBoard {
   width: 400px;
   height: 250px;
   border: 2px solid black;

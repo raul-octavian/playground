@@ -1,7 +1,7 @@
 <template>
   <section id="canvas-container">
-    <div onclick="showCoords(event)" id="canvas">
-      <div id="click-show"></div>
+    <div @click="showCoords(event)" id="moodBoard" ref="moodBoard">
+      <div id="click-show" ref="clickPosition"></div>
     </div>
   </section>
 </template>
@@ -14,15 +14,11 @@ export default {
       coordY: 0,
       one: 0,
       allPositions: [],
-      canvas: document.querySelector("#canvas"),
-      positionCanvas: getPosition(),
-      elementWidth: this.canvas.offsetWidth,
-      elementHeight: this.canvas.offsetHeight,
-      clickPosition: document.querySelector("#click-show")
+      positionCanvas: this.getPosition(),
+      elementWidth: this.$refs.moodBoard.offsetWidth,
+      elementHeight: this.$refs.moodBoard.offsetHeight,
+      clickPosition: this.$refs.clickPosition
     };
-  },
-  mounted() {
-    positionCanvas: this.canvas.getBoundingClientRect();
   },
 
   methods: {
@@ -34,7 +30,7 @@ export default {
     },
 
     getPosition() {
-      return this.canvas.getBoundingClientRect();
+      return this.$refs.moodBoard.getBoundingClientRect();
     },
 
     //?populate the array
