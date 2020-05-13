@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
+      <router-link to="/julia">julia</router-link>
     </div>
 
     <mood></mood>
@@ -11,11 +12,11 @@
 </template>
 
 <script>
-import mood from "./components/moodBoard";
+import mood from './components/moodBoard';
 export default {
   components: {
-    mood: mood
-  }
+    mood: mood,
+  },
 };
 </script>
 
