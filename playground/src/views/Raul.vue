@@ -3,7 +3,10 @@
     <h1>This is Raul's playground</h1>
     <div class="clickContainer">
       <div class="clickArea" ref="moodArea" @click="this.clickRecorder">
-        <div class="clickPoint" :style="positionElement"></div>
+        <div
+          class="clickPoint"
+          v-bind:style="{ top : positionElement.top + 'px', left : positionElement.left + 'px'}"
+        ></div>
       </div>
     </div>
   </div>
