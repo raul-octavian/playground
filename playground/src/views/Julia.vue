@@ -1,6 +1,6 @@
 <template>
   <div class="julia">
-    HEllo
+    <h1>This is Julia's playground</h1>
   </div>
 </template>
 

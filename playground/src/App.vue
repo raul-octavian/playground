@@ -1,22 +1,21 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
+      <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
-      <router-link to="/julia">julia</router-link>
+      <router-link to="/julia">Julia</router-link>
+      <router-link to="/radek">Radek</router-link>
+      <router-link to="/johannes">Johannes</router-link>
+      <router-link to="/raul">Raul</router-link>
     </div>
 
-    <mood></mood>
     <router-view />
   </div>
 </template>
 
 <script>
-import mood from './components/moodBoard';
 export default {
-  components: {
-    mood: mood,
-  },
+  components: {}
 };
 </script>
 
@@ -24,12 +23,20 @@ export default {
 body {
   min-height: 100vh;
 }
+#nav {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  a {
+    margin-right: 20px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
 }
-section {
-  min-height: 100vh;
+h1 {
+  text-align: center;
 }
 
 #moodBoard {
