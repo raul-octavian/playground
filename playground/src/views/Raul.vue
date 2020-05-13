@@ -3,7 +3,7 @@
     <h1>This is Raul's playground</h1>
     <div class="clickContainer">
       <div class="clickArea" ref="moodArea" @click="this.clickRecorder">
-        <div class="clickPoint"></div>
+        <div class="clickPoint" :style="positionElement"></div>
       </div>
     </div>
   </div>
@@ -25,18 +25,26 @@ export default {
         top: 0,
         left: 0
       },
-      allPositions: []
+      allPositions: [],
+      positionElement: {
+        top: 0,
+        left: 0
+      }
     };
   },
   methods: {
     populateArray() {
       this.allPositions.push(this.positionOneElement);
-      console.log(this.allPositions);
     },
     createPositionElement() {
       this.positionOneElement.date = new Date();
-      this.positionOneElement.top = this.coordX - this.left;
-      this.positionOneElement.left = this.coordY - this.to;
+      this.positionOneElement.left = this.coordX - this.boxLocation.left;
+      this.positionOneElement.top = this.coordY - this.boxLocation.top;
+    },
+
+    positionStyle() {
+      this.positionElement.left = this.coordX - this.boxLocation.left;
+      this.positionElement.top = this.coordY - this.boxLocation.top;
     },
 
     clickRecorder(event) {
@@ -45,14 +53,12 @@ export default {
       this.coordY = event.clientY; // y coordinate
       this.createPositionElement();
       this.populateArray();
-      console.log(this.coordX);
-      console.log(this.coordY);
+      this.positionStyle();
     }
   },
   mounted() {
     this.boxLocation.left = this.$refs.moodArea.getBoundingClientRect().left;
     this.boxLocation.top = this.$refs.moodArea.getBoundingClientRect().top;
-    console.log(this.boxLocation);
   }
 };
 </script>
